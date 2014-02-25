@@ -12,3 +12,13 @@ window.echo("echome", function(echoValue) {
     alert(echoValue == "echome"); // should alert true.
 });
 ```
+
+##Usage
+
+Sets AVSession category to AVAudioSessionCategoryPlayback. To enable background audio on iOS.
+
+```
+window.setAVSessionCategory("AVAudioSessionCategoryPlayback", function(str) {
+    alert("done"); // your callback
+});
+```
