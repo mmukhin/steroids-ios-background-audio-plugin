@@ -4,30 +4,14 @@
 #import <Cordova/CDV.h>
 #import <AVFoundation/AVFoundation.h>
 
-@implementation Echo
-
-- (void)echo:(CDVInvokedUrlCommand*)command
-{
-    CDVPluginResult* pluginResult = nil;
-    NSString* echo = [command.arguments objectAtIndex:0];
-
-    if (echo != nil && [echo length] > 0) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
-    } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-    }
-
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
-
-@end
-
 @implementation AVSession
 
 - (void)setCategory:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
     NSString* argumentOne = [command.arguments objectAtIndex:0];
+
+    NSLog(@"Setting AVSession category with argument %@", argumentOne);
 
 //    if (echo != nil && [echo length] > 0) {
 //        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
@@ -43,7 +27,12 @@
 
     // add error handling ... someday ^.^'' 
 
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Done setting AVAudioSessionCategoryPlayback."];
+    NSLog(@"Do you see an error here? %@", setCategoryError);
+    NSLog(@"Our brand new category is: %@", [audioSession category]);
+    
+    NSString *resultText = [NSString stringWithFormat:@"Set AVAudioSessionCategory to %@", [audioSession category]];
+    
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:resultText];
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
