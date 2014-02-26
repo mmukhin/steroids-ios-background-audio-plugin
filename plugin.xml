@@ -3,7 +3,7 @@
     id="com.pirkkaesko.steroids.plugin.iOSBackgroundAudio"
     version="1.0.0">
 
-    <name>iOSBackgroundAudioPlugin</name>
+    <name>AVSession</name>
 
   <description>
     iOS Background Audio Plugin for Steroids.js
