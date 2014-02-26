@@ -1,14 +1,27 @@
-Steroids iOS background audio plugin
+AVSession plugin
 ====================
+
+##Purpose
+
+Sets AVSession category to AVAudioSessionCategoryPlayback. This is to enable background audio on iOS.
+
+##Status
+
+This plugin is unfinished and only put together as a hack on github (mostly edited in the browser!). #worksforme
 
 ##Usage
 
-Sets AVSession category to AVAudioSessionCategoryPlayback. To enable background audio on iOS.
+Example below in Coffeescript.
 
 ```
-window.setAVSessionCategory("AVAudioSessionCategoryPlayback", function(str) {
-    alert(echoValue == "Done setting AVAudioSessionCategoryPlayback."); // should alert true.
-});
+  $scope.tackleIOSAVSession = ->
+    console.log 'setting AVSession on iOS...'    
+    onSuccess = (str) ->
+      console.log('Set the AVSession on iOS: ' + str)
+    onError = (err) ->
+      console.log('Unable to set iOS audio session')
+    cordova.exec(onSuccess, onError, "AVSession", "setCategory", ['AVAudioSessionCategoryPlayback'])
+
 ```
 
-NB: this method is hard-coded to use only AVAudioSessionCategoryPlayback. Must haxor further to enable other categories.
+NB: the setCategory method is hard-coded to use only AVAudioSessionCategoryPlayback. It would be quite trivial to enable other categories by actually using the argument supplied to the method.
