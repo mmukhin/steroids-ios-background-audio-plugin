@@ -39,7 +39,7 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)setNowPlayingInfoWithArtist:(CDVInvokedUrlCommand*)command {
+- (void)setNowPlayingInfo:(CDVInvokedUrlCommand*)command {
     
     NSString* artist = [command.arguments objectAtIndex:0];
     NSString* title = [command.arguments objectAtIndex:1];
@@ -53,6 +53,12 @@
                              album, MPMediaItemPropertyAlbumTitle,
                              nil];
     center.nowPlayingInfo = songInfo;
+
+    NSString *resultText = [NSString stringWithFormat:@"Set now playing info to %@", center.nowPlayingInfo];
+    
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:resultText];
+
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 @end
