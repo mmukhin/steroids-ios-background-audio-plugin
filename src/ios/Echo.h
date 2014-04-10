@@ -5,6 +5,6 @@
 @interface AVSession : CDVPlugin
 
 - (void)setCategory:(CDVInvokedUrlCommand*)command;
-- (void)setNowPlayingInfoWithArtist:(NSString*)artist withTitle:(NSString*)title withAlbum:(NSString*)album;
+- (void)setNowPlayingInfoWithArtist:(CDVInvokedUrlCommand*)command;
 
 @end

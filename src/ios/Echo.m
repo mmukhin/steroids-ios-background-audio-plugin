@@ -39,7 +39,12 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)setNowPlayingInfoWithArtist:(NSString*)artist withTitle:(NSString*)title withAlbum:(NSString*)album {
+- (void)setNowPlayingInfoWithArtist:(CDVInvokedUrlCommand*)command {
+    
+    NSString* artist = [command.arguments objectAtIndex:0];
+    NSString* title = [command.arguments objectAtIndex:1];
+    NSString* album = [command.arguments objectAtIndex:2];
+    
   
     MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
     NSDictionary *songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
