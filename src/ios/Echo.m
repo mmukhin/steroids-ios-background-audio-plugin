@@ -3,6 +3,8 @@
 #import "Echo.h"
 #import <Cordova/CDV.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MPNowPlayingInfoCenter.h>
+#import <MediaPlayer/MPMediaItem.h>
 
 @implementation AVSession
 
