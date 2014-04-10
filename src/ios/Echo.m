@@ -38,3 +38,14 @@
 }
 
 @end
+
+- (void)setNowPlayingInfoWithArtist:(NSString*)artist withTitle:(NSString*)title withAlbum:(NSString*)album {
+  
+    MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
+    NSDictionary *songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                             artist, MPMediaItemPropertyArtist,
+                             title, MPMediaItemPropertyTitle,
+                             album, MPMediaItemPropertyAlbumTitle,
+                             nil];
+    center.nowPlayingInfo = songInfo;
+}
