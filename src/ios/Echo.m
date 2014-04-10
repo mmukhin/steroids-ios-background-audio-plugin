@@ -37,8 +37,6 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-@end
-
 - (void)setNowPlayingInfoWithArtist:(NSString*)artist withTitle:(NSString*)title withAlbum:(NSString*)album {
   
     MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
@@ -49,3 +47,6 @@
                              nil];
     center.nowPlayingInfo = songInfo;
 }
+
+@end
+
