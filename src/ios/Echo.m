@@ -40,7 +40,9 @@
 }
 
 - (void)setNowPlayingInfo:(CDVInvokedUrlCommand*)command {
-    
+
+    CDVPluginResult* pluginResult = nil;
+
     NSString* artist = [command.arguments objectAtIndex:0];
     NSString* title = [command.arguments objectAtIndex:1];
     NSString* album = [command.arguments objectAtIndex:2];
