@@ -53,6 +53,7 @@
                              artist, MPMediaItemPropertyArtist,
                              title, MPMediaItemPropertyTitle,
                              album, MPMediaItemPropertyAlbumTitle,
+                             artwork, MPMediaItemPropertyArtwork,
                              nil];
     center.nowPlayingInfo = songInfo;
 
