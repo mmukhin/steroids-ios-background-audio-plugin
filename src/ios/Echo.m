@@ -53,8 +53,7 @@
                              artist, MPMediaItemPropertyArtist,
                              title, MPMediaItemPropertyTitle,
                              album, MPMediaItemPropertyAlbumTitle,
-                             artwork, MPMediaItemPropertyArtwork,
-                             nil];
+                             artwork, MPMediaItemPropertyArtwork];
     center.nowPlayingInfo = songInfo;
 
     NSString *resultText = [NSString stringWithFormat:@"Set now playing info to %@", center.nowPlayingInfo];
