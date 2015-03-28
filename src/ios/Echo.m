@@ -76,7 +76,7 @@
         CGImageRef cgref = [image CGImage];
         CIImage *cim = [image CIImage];
         if (cim != nil || cgref != NULL) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+    
                 if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
                     MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithImage: image];
                     MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
@@ -90,7 +90,7 @@
 
                     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:resultText];
                 }
-            });
+
         }
         
     
