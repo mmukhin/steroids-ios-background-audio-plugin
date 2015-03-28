@@ -41,13 +41,14 @@
 
 - (void)setNowPlayingInfo:(CDVInvokedUrlCommand*)command {
 
+    CDVPluginResult* pluginResult = nil;
+
     NSString *artist = [command.arguments objectAtIndex:0];
     NSString *title = [command.arguments objectAtIndex:1];
     NSString *album = [command.arguments objectAtIndex:2];
     NSString *cover = [command.arguments objectAtIndex:3];
 
-    // async cover loading
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    
         UIImage *image = nil;
         // check whether cover path is present
         if (![cover isEqual: @""]) {
@@ -84,10 +85,16 @@
                         title, MPMediaItemPropertyTitle,
                         album, MPMediaItemPropertyAlbumTitle,
                         artwork, MPMediaItemPropertyArtwork];
+                        
+                    NSString *resultText = [NSString stringWithFormat:@"Set now playing info to %@", center.nowPlayingInfo];
+
+                    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:resultText];
                 }
             });
         }
-    });
+        
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 @end
